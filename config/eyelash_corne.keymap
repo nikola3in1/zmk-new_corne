@@ -29,6 +29,14 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_reset_bluetooth {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = &bt BT_CLR_ALL;
+        };
+    };
     behaviors {
         td0: td0 {
             compatible = "zmk,behavior-tap-dance";
@@ -37,7 +45,6 @@
             bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
         };
     };
-
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
